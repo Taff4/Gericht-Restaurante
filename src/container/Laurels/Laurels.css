@@ -1,0 +1,76 @@
+/* Container que segura todos os cards dos prêmios */
+.app__laurels_awards {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start; /* Alinha os cards pelo topo */
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+/* O card de prêmio individual */
+.app__laurels_awards-card {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    /* MUDANÇA PRINCIPAL: Força os cards a ocuparem mais espaço, 
+       resultando em duas colunas ou uma, dependendo da tela. */
+    min-width: 400px;
+    
+    /* MUDANÇA: Reduzimos a margem vertical para aproximar as linhas */
+    margin: 1rem;
+
+    padding: 0.5rem; /* Padding bem sutil */
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.app__laurels_awards-card:hover {
+    transform: scale(1.03); /* Efeito de hover mais sutil */
+    border-color: var(--color-golden);
+    background-color: rgba(220, 202, 135, 0.05);
+}
+
+/* Ícone estilizado */
+.app__laurels_awards-card_icon {
+    width: 50px;
+    height: 50px;
+    -webkit-mask-image: var(--bg-image);
+    mask-image: var(--bg-image);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    background-color: var(--color-grey);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.app__laurels_awards-card:hover .app__laurels_awards-card_icon {
+    background-color: var(--color-golden);
+}
+
+/* Conteúdo do card */
+.app__laurels_awards-card_content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+/* --- Media Queries --- */
+@media screen and (min-width: 1900px) {
+    .app__laurels_awards-card {
+        min-width: 450px; /* Ajuste para telas muito grandes */
+    }
+}
+
+@media screen and (max-width: 650px) {
+    /* Em telas menores, cada card ocupa a largura total */
+    .app__laurels_awards-card {
+        min-width: 100%;
+        margin: 1rem 0;
+    }
+}

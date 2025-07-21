@@ -1,0 +1,138 @@
+.app__header {
+    background-color: var(--color-black);
+    position: relative; 
+    
+    /* CORREÇÃO DEFINITIVA: 
+       - padding-top para o espaço da Navbar.
+       - padding left/right que antes vinha do section__padding.
+       - padding-bottom para o espaço inferior.
+    */
+    padding: 8rem 6rem 4rem 6rem;
+}
+
+/* --- ESTILOS DO CONTEÚDO --- */
+.app__header-h1 {
+    font-family: var(--font-base);
+    color: var(--color-golden);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    line-height: 117px;
+    font-size: 90px;
+    margin-bottom: 1rem;
+}
+
+.app__header-p {
+    margin: 2rem 0;
+    color: var(--color-grey);
+    font-weight: 300;
+}
+
+/* --- EFEITOS E ANIMAÇÕES NA IMAGEM --- */
+.app__header-img-animation-wrapper {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
+  
+    opacity: 0;
+    animation: slide-up 0.9s ease-out 0.3s forwards;
+}
+
+.app__wrapper_img {
+    position: relative;
+    perspective: 1000px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.app__wrapper_img img {
+    width: 80%;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+.app__wrapper_img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 1;
+    filter: blur(40px);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.app__wrapper_img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 50%);
+    z-index: 3;
+    transition: background 0.5s ease-in-out;
+}
+
+.app__wrapper_img:hover {
+    transform: translateZ(30px) scale(1.05);
+}
+
+.app__wrapper_img:hover::before {
+    opacity: 0.5;
+    transform: scale(1);
+}
+
+.app__wrapper_img:hover::after {
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 50%);
+}
+
+
+/* === ANIMAÇÕES DE ENTRADA DO TEXTO === */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.app__wrapper_info > * {
+  opacity: 0; 
+  animation: slide-up 0.9s ease-out forwards;
+}
+.app__wrapper_info h1 { animation-delay: 0.3s; }
+.app__wrapper_info .app__header-p { animation-delay: 0.5s; }
+.app__wrapper_info .custom__button { animation-delay: 0.7s; }
+
+
+/* === MEDIA QUERIES === */
+@media screen and (min-width: 2000px) {
+    .app__header-h1 { font-size: 180px; line-height: 210px; }
+}
+
+@media screen and (max-width: 1150px) {
+    .app__header-h1 { font-size: 90px; }
+    .app__header-img-animation-wrapper { margin-left: 0; margin-top: 5rem; }
+}
+
+@media screen and (max-width: 850px) {
+    .app__header {
+        padding: 7rem 4rem 4rem 4rem; /* Ajuste para tablets */
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .app__header {
+        padding: 6rem 2rem 2rem 2rem; /* Ajuste para celulares */
+    }
+    .app__header-h1 { font-size: 70px; line-height: 87px; }
+}
+
+@media screen and (max-width: 450px) {
+    .app__header-h1 { font-size: 50px; line-height: 70px; }
+}

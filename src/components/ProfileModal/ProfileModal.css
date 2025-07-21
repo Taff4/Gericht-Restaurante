@@ -1,0 +1,151 @@
+.profile-modal {
+    max-width: 700px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-content-wrapper {
+    overflow-y: auto; /* Adiciona scroll se o conteúdo for maior que o modal */
+    padding-right: 1rem; /* Espaço para o scrollbar */
+    margin-right: -1rem; /* Compensa o padding */
+}
+
+.profile-modal .auth-form {
+    text-align: left;
+}
+
+.profile-modal .auth-form label {
+    margin-bottom: -0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-grey);
+}
+
+.profile-modal input:disabled {
+    background-color: var(--color-gray);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 1rem 2rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1; /* Ocupa a largura toda */
+}
+
+.profile-message {
+    text-align: center;
+    color: var(--color-golden);
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.logout__button {
+    margin-top: 1rem;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--color-crimson);
+    color: var(--color-crimson);
+}
+.logout__button:hover {
+    background-color: var(--color-crimson);
+    color: var(--color-black);
+}
+
+/* --- Estilos das Abas --- */
+.profile-modal__tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.profile-tab-btn {
+    font-family: var(--font-base);
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    color: var(--color-grey);
+    cursor: pointer;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.profile-tab-btn:hover {
+    color: var(--color-white);
+}
+
+.profile-tab-btn.active {
+    color: var(--color-golden);
+    border-bottom-color: var(--color-golden);
+}
+
+/* --- Estilos da Lista de Reservas --- */
+.bookings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.booking-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-gray);
+    border-radius: 5px;
+    padding: 1rem 1.5rem;
+    text-align: left;
+}
+
+.booking-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-gray);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.booking-card__header .p__cormorant {
+    font-size: 1.5rem;
+    color: var(--color-golden);
+}
+
+.booking-card__header .p__opensans {
+    font-size: 0.9rem;
+    color: var(--color-grey);
+}
+
+.booking-card__body p {
+    color: var(--color-white);
+    margin: 0.25rem 0;
+    text-align: left;
+    text-transform: none;
+}
+
+/* Adicione estas classes ao seu src/components/ProfileModal/ProfileModal.css */
+.booking-card__footer {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cancel-button {
+    background: none;
+    border: 1px solid #ff4d4d; /* Cor vermelha para cancelamento */
+    color: #ff4d4d;
+    padding: 0.25rem 0.75rem;
+    font-family: var(--font-alt);
+    font-size: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+    background: #ff4d4d;
+    color: var(--color-black);
+}

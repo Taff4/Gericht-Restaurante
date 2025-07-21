@@ -1,0 +1,45 @@
+/* src/container/Findus/FindUs.css */
+
+/* Adiciona um espaçamento maior entre o endereço e os horários */
+.app__findus-hours {
+    margin-top: 2rem;
+}
+
+/* Aplica o mesmo efeito de hover das outras seções para consistência */
+.app__wrapper_img {
+    position: relative;
+    perspective: 1000px;
+    transition: filter 0.4s ease-out;
+}
+
+.app__wrapper_img img {
+    width: 80%;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.app__wrapper_img:hover {
+    filter: drop-shadow(0px 20px 25px rgba(0, 0, 0, 0.4));
+}
+
+.app__wrapper_img:hover img {
+    transform: scale(1.05);
+}
+
+/* Animações de entrada para a seção */
+#contact .app__wrapper_info > *,
+#contact .app__wrapper_img {
+    opacity: 0;
+}
+
+/* Quando a seção estiver visível, os elementos aparecerão */
+#contact.visible .app__wrapper_info > *,
+#contact.visible .app__wrapper_img {
+    animation: slide-up 0.9s ease-out forwards;
+}
+
+/* Atrasos para a animação sequencial */
+#contact.visible .app__wrapper_info h1 { animation-delay: 0.2s; }
+#contact.visible .app__wrapper-content { animation-delay: 0.4s; }
+#contact.visible .custom__button { animation-delay: 0.6s; }
+#contact.visible .app__wrapper_img { animation-delay: 0.2s; }

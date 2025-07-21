@@ -1,0 +1,86 @@
+/* Wrapper para cada mesa */
+.restaurant-table-wrapper {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* O elemento visual da mesa */
+.restaurant-table-shape {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    color: var(--color-golden);
+    font-family: var(--font-base);
+    font-size: 1rem; /* Fonte um pouco menor */
+    border: 2px solid var(--color-golden);
+}
+
+.table-number {
+    font-weight: 600;
+}
+
+/* Estilo para mesas de casal (redondas) - TAMANHO REDUZIDO */
+.table-couple {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Estilo para mesas de grupo (retangulares) - TAMANHO REDUZIDO */
+.table-group {
+    width: 80px;
+    height: 45px;
+    border-radius: 8px;
+}
+
+/* --- ESTADOS DA MESA --- */
+.restaurant-table-wrapper.selected .restaurant-table-shape {
+    background-color: var(--color-golden);
+    color: var(--color-black);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--color-golden);
+}
+
+.restaurant-table-wrapper.occupied .restaurant-table-shape {
+    background-color: var(--color-gray);
+    border-color: var(--color-grey);
+    color: var(--color-black);
+}
+
+.restaurant-table-wrapper.occupied {
+    cursor: not-allowed;
+}
+
+/* --- TOOLTIP DE DESCRIÇÃO --- */
+.table-tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--color-golden);
+    font-family: var(--font-alt);
+    font-size: 0.8rem;
+    width: max-content;
+    max-width: 200px;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+
+.restaurant-table-wrapper:hover .table-tooltip,
+.restaurant-table-wrapper.selected .table-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}

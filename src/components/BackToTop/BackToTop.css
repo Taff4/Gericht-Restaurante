@@ -1,0 +1,42 @@
+.app__back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+
+    /* Animação de entrada e saída */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+.app__back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* O novo estilo para a colher */
+.back-to-top_spoon {
+    width: 50px; /* Tamanho do ícone */
+    height: auto;
+    cursor: pointer;
+    
+    /* Gira a colher para apontar para cima */
+    transform: rotate(-90deg);
+    
+    /* Adiciona uma sombra projetada para destacar do fundo */
+    filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.7));
+
+    /* Transição para o efeito de hover */
+    transition: all 0.3s ease-in-out;
+}
+
+.back-to-top_spoon:hover {
+    /* Efeito de pulo e aumento no hover */
+    transform: rotate(-90deg) scale(1.15) translateY(-5px);
+    
+    /* Aumenta a intensidade da sombra no hover */
+    filter: drop-shadow(0px 0px 15px rgba(220, 202, 135, 0.5));
+}

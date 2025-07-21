@@ -1,0 +1,160 @@
+/* --- Estilos da Navbar Principal (sem muitas alterações) --- */
+.app__navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-black);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: padding 0.3s ease-in-out;
+}
+.app__navbar.scrolled { padding: 0.5rem 2rem; }
+.app__navbar-logo { display: flex; justify-content: flex-start; align-items: center; }
+.app__navbar-logo img { width: 150px; transition: width 0.3s ease-in-out; }
+.app__navbar.scrolled .app__navbar-logo img { width: 110px; }
+.app__navbar-links, .app__navbar-login { display: flex; align-items: center; transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; opacity: 1; visibility: visible; }
+.app__navbar-links { flex: 1; justify-content: center; list-style: none; }
+.app__navbar-login { justify-content: flex-end; }
+.app__navbar-links li { margin: 0 1rem; cursor: pointer; }
+.app__navbar-links li:hover { color: var(--color-grey); }
+.app__navbar-login div { width: 1px; height: 30px; background: var(--color-grey); }
+.book__button { background: none; border: none; color: var(--color-white); cursor: pointer; padding: 0; margin: 0 1rem; transition: .5s ease; font-family: var(--font-alt); font-size: 16px; text-transform: capitalize; position: relative; }
+.book__button::after { content: ''; position: absolute; width: 100%; height: 1px; background: var(--color-golden); bottom: -2px; left: 0; transform: scaleX(0); transform-origin: bottom right; transition: transform 0.3s ease-out; }
+.book__button:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+.app__navbar-smallscreen { display: none; opacity: 0; transition: opacity 0.3s ease-in-out; pointer-events: none; }
+.hamburger__button { background: transparent; border: none; cursor: pointer; }
+
+
+/* --- NOVO DESIGN DO OVERLAY DO MENU MOBILE --- */
+
+.app__navbar-smallscreen_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Fundo semi-transparente com desfoque */
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    /* Animação de entrada do overlay */
+    animation: fadeInOverlay 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 101;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); }
+  to { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+}
+
+.overlay__close {
+    font-size: 27px;
+    color: var(--color-golden);
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+}
+
+.app__navbar-smallscreen_links {
+    list-style: none;
+    width: 80%; /* O menu não ocupa a tela toda */
+    text-align: left; /* Alinhamento à esquerda */
+}
+
+/* Animação de cascata para os itens do menu */
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.app__navbar-smallscreen_links li {
+    margin: 1.5rem 0; /* Espaçamento vertical */
+    opacity: 0; /* Começam invisíveis */
+    animation: slideInFromRight 0.5s ease-out forwards;
+}
+
+.app__navbar-smallscreen_links a,
+.app__navbar-smallscreen_links button {
+    color: var(--color-white); /* Cor principal é branca */
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    font-family: var(--font-base);
+    transition: color 0.3s ease;
+    text-align: left;
+    width: 100%;
+}
+
+.app__navbar-smallscreen_links a:hover,
+.app__navbar-smallscreen_links button:hover {
+    color: var(--color-golden); /* Dourado no hover */
+}
+
+.smallscreen__divider {
+    width: 100%;
+    height: 1px;
+    background: var(--color-golden);
+    margin: 1rem 0;
+}
+
+.smallscreen__booking-button {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    width: auto; /* Botão não ocupa a largura toda */
+    padding: 0.75rem 2rem;
+}
+
+
+/* --- LÓGICA DE RESPONSIVIDADE E SCROLL --- */
+@media screen and (max-width: 1150px) {
+    .app__navbar-links, .app__navbar-login { display: none; }
+    .app__navbar-smallscreen { display: flex; opacity: 1; pointer-events: auto; }
+}
+
+@media screen and (min-width: 1151px) {
+    .app__navbar.scrolled .app__navbar-links,
+    .app__navbar.scrolled .app__navbar-login {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    .app__navbar.scrolled .app__navbar-smallscreen {
+        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    .app__navbar-logo img { width: 180px; }
+}
+
+@media screen and (max-width: 650px) {
+    .app__navbar { padding: 1rem; }
+    .app__navbar.scrolled { padding: 0.5rem 1rem; }
+    .app__navbar-logo img { width: 110px; }
+    .app__navbar-smallscreen_links { width: 90%; }
+    .app__navbar-smallscreen_links li { font-size: 1.5rem; }
+    .app__navbar-smallscreen_links a, .app__navbar-smallscreen_links button { font-size: 1.5rem; }
+}

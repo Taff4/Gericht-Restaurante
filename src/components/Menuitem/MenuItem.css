@@ -1,0 +1,58 @@
+.app__menuitem {
+    width: 100%;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    /* A transição agora é no background e opacidade para um efeito suave */
+    transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Efeito de hover inspirado nos prêmios */
+.app__menuitem:hover {
+    /* Não vamos mais usar 'transform: scale()' aqui para evitar o corte */
+    background-color: rgba(220, 202, 135, 0.05); /* Um brilho dourado muito sutil */
+    border-radius: 5px; /* Bordas arredondadas para o brilho */
+    padding: 0 0.5rem; /* Um pequeno preenchimento para o efeito respirar */
+    margin-left: -0.5rem; /* Compensa o padding para manter o alinhamento */
+}
+
+.app__menuitem-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app__menuitem-name {
+    flex: 1;
+}
+
+.menuitem__title {
+  color: var(--color-golden);
+  transition: color 0.3s ease-in-out;
+}
+
+.menuitem__tags {
+  color: var(--color-grey);
+}
+
+.app__menuitem:hover .menuitem__title {
+    color: var(--color-white);
+}
+
+.app__menuitem-dash {
+    width: 90px;
+    height: 1px;
+    background: var(--color-golden);
+    margin: 0 1rem;
+}
+
+.app__menuitem-price {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.app__menuitem-sub {
+    width: 100%;
+    margin-top: 0.2rem;
+}

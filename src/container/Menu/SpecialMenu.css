@@ -1,0 +1,155 @@
+.app__specialMenu {
+    flex-direction: column;
+    background: var(--color-black);
+}
+
+.app__specialMenu-title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.app__specialMenu-menu {
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.app__specialMenu-menu_heading {
+    font-family: var(--font-base);
+    font-weight: 600;
+    font-size: 45px;
+    line-height: 58.5px;
+    letter-spacing: 0.04em;
+    color: var(--color-white);
+}
+
+.app__specialMenu-menu_wine,
+.app__specialMenu-menu_cocktails {
+    flex: 1;
+    width: 100%;
+    flex-direction: column;
+}
+
+.app__specialMenu-menu_img {
+    width: 380px; /* Largura ajustada */
+    margin: 0 2rem;
+    perspective: 1000px; 
+}
+
+.app__specialMenu-menu_img img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.app__specialMenu-menu_img:hover img {
+    transform: scale(1.05) translateZ(20px);
+}
+
+.app__specialMenu_menu_items {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+/* --- Estilos para o Menu Completo dentro do Modal --- */
+.app__fullMenu {
+    width: 100%;
+}
+
+.app__fullMenu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.app__fullMenu-tab_button {
+    font-family: var(--font-base);
+    color: var(--color-grey);
+    background-color: transparent;
+    border: 1px solid var(--color-grey);
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 1px;
+}
+
+.app__fullMenu-tab_button.active,
+.app__fullMenu-tab_button:hover {
+    color: var(--color-black);
+    background-color: var(--color-golden);
+    border-color: var(--color-golden);
+}
+
+.app__fullMenu-content {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+.app__fullMenu-content::-webkit-scrollbar {
+    width: 8px;
+}
+.app__fullMenu-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+.app__fullMenu-content::-webkit-scrollbar-thumb {
+    background: var(--color-golden);
+    border-radius: 4px;
+}
+
+.app__fullMenu_items .app__menuitem {
+    margin: 0.5rem 0;
+}
+
+.app__fullMenu-category_title {
+    font-family: var(--font-base);
+    font-size: 28px;
+    color: var(--color-golden);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.app__fullMenu-content > div:first-child .app__fullMenu-category_title {
+    margin-top: 0;
+}
+
+
+/* === Media Queries === */
+
+@media screen and (min-width: 2000px) {
+    .app__specialMenu-menu_img {
+        width: 650px;
+    }
+    .app__specialMenu-menu_img img {
+        height: 920px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .app__specialMenu-menu {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .app__specialMenu-menu_img {
+        margin: 3rem 0;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .app__specialMenu-menu_img {
+        width: 100%;
+    }
+    .app__specialMenu-menu_heading {
+        font-size: 35px;
+        line-height: 48.5px;
+    }
+}

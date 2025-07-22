@@ -58,7 +58,8 @@ const SpecialMenu = () => {
         </div> 
         
         <div className="app__specialMenu-menu">
-          <div className="app__specialMenu-menu_wine  flex__center">
+          {/* Classe 'flex__center' removida daqui */}
+          <div className="app__specialMenu-menu_wine">
             <p className="app__specialMenu-menu_heading">Vinhos & Cervejas</p>
             <div className="app__specialMenu_menu_items">
               {data.wines.map((wine, index) => (
@@ -71,7 +72,8 @@ const SpecialMenu = () => {
             <img src={images.menu} alt="menu__img" />
           </div>
 
-          <div className="app__specialMenu-menu_cocktails  flex__center">
+          {/* Classe 'flex__center' removida daqui */}
+          <div className="app__specialMenu-menu_cocktails">
             <p className="app__specialMenu-menu_heading">Cocktails</p>
             <div className="app__specialMenu_menu_items">
               {data.cocktails.map((cocktail, index) => (

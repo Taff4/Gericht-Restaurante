@@ -24,17 +24,20 @@
     line-height: 58.5px;
     letter-spacing: 0.04em;
     color: var(--color-white);
+    /* MUDANÇA: Garante que o título principal da seção fique centralizado */
+    text-align: center;
 }
 
 .app__specialMenu-menu_wine,
 .app__specialMenu-menu_cocktails {
     flex: 1;
     width: 100%;
+    display: flex; /* Adicionado para controle de alinhamento dos filhos */
     flex-direction: column;
 }
 
 .app__specialMenu-menu_img {
-    width: 380px; /* Largura ajustada */
+    width: 380px;
     margin: 0 2rem;
     perspective: 1000px; 
 }
@@ -56,7 +59,7 @@
     width: 100%;
 }
 
-/* --- Estilos para o Menu Completo dentro do Modal --- */
+/* --- ESTILOS PARA O MENU COMPLETO DENTRO DO MODAL --- */
 .app__fullMenu {
     width: 100%;
 }
@@ -90,30 +93,29 @@
 .app__fullMenu-content {
     max-height: 60vh;
     overflow-y: auto;
-    padding-right: 1rem;
+    padding: 0 1.5rem;
 }
 
-.app__fullMenu-content::-webkit-scrollbar {
-    width: 8px;
-}
-.app__fullMenu-content::-webkit-scrollbar-track {
-    background: transparent;
-}
-.app__fullMenu-content::-webkit-scrollbar-thumb {
-    background: var(--color-golden);
-    border-radius: 4px;
+.app__fullMenu-content::-webkit-scrollbar { width: 8px; }
+.app__fullMenu-content::-webkit-scrollbar-track { background: transparent; }
+.app__fullMenu-content::-webkit-scrollbar-thumb { background: var(--color-golden); border-radius: 4px; }
+
+.app__fullMenu_items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .app__fullMenu_items .app__menuitem {
-    margin: 0.5rem 0;
+    margin: 0;
 }
 
 .app__fullMenu-category_title {
     font-family: var(--font-base);
     font-size: 28px;
     color: var(--color-golden);
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
     text-align: left;
 }
 
@@ -121,35 +123,28 @@
     margin-top: 0;
 }
 
-
-/* === Media Queries === */
-
+/* === MEDIA QUERIES === */
 @media screen and (min-width: 2000px) {
-    .app__specialMenu-menu_img {
-        width: 650px;
-    }
-    .app__specialMenu-menu_img img {
-        height: 920px;
-    }
+    .app__specialMenu-menu_img { width: 650px; }
+    .app__specialMenu-menu_img img { height: 920px; }
 }
 
 @media screen and (max-width: 1150px) {
-    .app__specialMenu-menu {
-        flex-direction: column;
-        align-items: center;
+    .app__specialMenu-menu { flex-direction: column; align-items: center; width: 100%; }
+    .app__specialMenu-menu_img { margin: 3rem 0; }
+    /* MUDANÇA: Garante que as colunas de menu ocupem a largura toda */
+    .app__specialMenu-menu_wine,
+    .app__specialMenu-menu_cocktails {
         width: 100%;
-    }
-    .app__specialMenu-menu_img {
-        margin: 3rem 0;
+        max-width: 650px; /* Limita a largura em telas de tablet */
+        margin-top: 2rem;
     }
 }
 
 @media screen and (max-width: 650px) {
-    .app__specialMenu-menu_img {
-        width: 100%;
-    }
-    .app__specialMenu-menu_heading {
-        font-size: 35px;
-        line-height: 48.5px;
-    }
+    .app__specialMenu-menu_img { width: 100%; }
+    .app__specialMenu-menu_heading { font-size: 35px; line-height: 48.5px; }
+    
+    .app__fullMenu-content { max-height: 65vh; padding: 0 1rem; }
+    .app__fullMenu-category_title { font-size: 24px; }
 }

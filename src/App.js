@@ -1,9 +1,6 @@
-// src/App.js
-
-// CORREÇÃO: Importe useState e useEffect aqui
-import React, { useState, useEffect } from 'react';
-// A importação do router não é necessária com a abordagem simplificada
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { supabase } from './supabaseClient';
 
 import { AboutUs, Chef, FindUs, Footer, Gallery, Header, Intro, Laurels, SpecialMenu, UpdatePassword } from './container';
 import { Navbar } from './components';
@@ -25,34 +22,39 @@ const MainPage = () => (
   </>
 );
 
-// Componente App inteligente que decide qual página mostrar
-const SmartApp = () => {
-    const [isUpdatePassword, setIsUpdatePassword] = useState(false);
+// Componente que lida com os eventos de autenticação do Supabase
+const AuthHandler = () => {
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        // Esta função será chamada apenas uma vez, quando o app montar
-        const handleAuthAction = () => {
-            // O Supabase adiciona 'type=recovery' ao hash da URL
-            if (window.location.hash.includes('type=recovery')) {
-                setIsUpdatePassword(true);
-            }
-        };
-        
-        // Verifica na carga inicial
-        handleAuthAction();
+  useEffect(() => {
+    // Listener do Supabase para eventos de autenticação
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      // Quando o usuário clica no link de recuperação, o evento é PASSWORD_RECOVERY
+      if (event === 'PASSWORD_RECOVERY') {
+        // Redireciona o usuário para a nossa página de nova senha
+        navigate('/update-password');
+      }
+    });
 
-        // Ouve por mudanças no hash (caso o usuário cole o link com o app já aberto)
-        window.addEventListener('hashchange', handleAuthAction);
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [navigate]);
 
-        // Limpa o listener
-        return () => {
-            window.removeEventListener('hashchange', handleAuthAction);
-        };
-    }, []);
+  return null; // Este componente não renderiza nada visualmente
+};
 
-    // Se for a rota de recuperação, mostra apenas a página de nova senha.
-    // Senão, mostra o site completo.
-    return isUpdatePassword ? <UpdatePassword /> : <MainPage />;
-}
 
-export default SmartApp;
+const App = () => {
+  return (
+    <Router>
+      <AuthHandler /> {/* Componente "ouvinte" que gerencia os redirecionamentos */}
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/update-password" element={<UpdatePassword />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;

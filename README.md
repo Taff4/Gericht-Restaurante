@@ -98,6 +98,21 @@ A aplicação estará disponível em `http://localhost:3000`.
 
 O deploy deste projeto foi feito na **Vercel**, conectada diretamente a este repositório GitHub. Qualquer `push` para a branch `main` aciona um novo build e deploy automaticamente.
 
+# Documentação do Projeto Gericht Restaurante
+
+Este diretório contém informações detalhadas sobre a arquitetura, componentes, estrutura do banco de dados e guias de uso do site.
+
+## Seções
+
+1.  **[Visão Geral e Guia de Uso](./01-visao-geral.md)**
+    *   Um guia para o usuário final, explicando como navegar pelo site e utilizar suas funcionalidades, como o sistema de registro e reserva.
+
+2.  **[Guia de Componentes](./02-guia-de-componentes.md)**
+    *   Uma documentação técnica detalhada sobre os principais componentes React, sua estrutura, props e responsabilidades.
+
+3.  **[Estrutura do Banco de Dados](./03-banco-de-dados.md)**
+    *   Detalhes sobre o esquema do banco de dados PostgreSQL no Supabase, incluindo tabelas, relacionamentos e o script para gerar um diagrama visual.
+
 ## 🌟 O que Aprendi
 
 Este projeto foi uma jornada de aprendizado sobre a integração de um frontend React moderno com um backend real. Os principais desafios e aprendizados foram:

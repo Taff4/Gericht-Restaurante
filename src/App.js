@@ -1,13 +1,31 @@
-import React, { useEffect } from 'react';
+// src/App.js
+
+// CORREÇÃO: Adicione 'useEffect' à importação do React
+import React, { useEffect } from 'react'; 
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { supabase } from './supabaseClient';
 
-import { AboutUs, Chef, FindUs, Footer, Gallery, Header, Intro, Laurels, SpecialMenu, UpdatePassword } from './container';
-import { Navbar } from './components';
+// Importa todos os containers
+import { 
+  AboutUs, 
+  Chef, 
+  FindUs, 
+  Footer, 
+  Gallery, 
+  Header, 
+  Intro, 
+  Laurels, 
+  SpecialMenu, 
+  UpdatePassword,
+  AdminDashboard
+} from './container';
+
+// Importa os componentes necessários
+import { Navbar, ProtectedRoute } from './components';
 import './App.css';
 
-// Componente para a página principal
-const MainPage = () => (
+// Componente para o layout da página principal
+const MainPageLayout = () => (
   <>
     <Navbar />
     <Header />
@@ -27,11 +45,8 @@ const AuthHandler = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Listener do Supabase para eventos de autenticação
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      // Quando o usuário clica no link de recuperação, o evento é PASSWORD_RECOVERY
       if (event === 'PASSWORD_RECOVERY') {
-        // Redireciona o usuário para a nossa página de nova senha
         navigate('/update-password');
       }
     });
@@ -41,17 +56,26 @@ const AuthHandler = () => {
     };
   }, [navigate]);
 
-  return null; // Este componente não renderiza nada visualmente
+  return null; // Este componente não renderiza nada
 };
-
 
 const App = () => {
   return (
     <Router>
-      <AuthHandler /> {/* Componente "ouvinte" que gerencia os redirecionamentos */}
+      <AuthHandler />
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<MainPageLayout />} />
         <Route path="/update-password" element={<UpdatePassword />} />
+
+        {/* ROTA PROTEGIDA PARA O PAINEL DE ADMIN */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute adminOnly={true}>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );

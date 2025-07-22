@@ -8,6 +8,8 @@ import Intro from './Intro/Intro';
 import Laurels from './Laurels/Laurels';
 import SpecialMenu from './Menu/SpecialMenu';
 import UpdatePassword from './UpdatePassword/UpdatePassword';
+import AdminDashboard from './AdminDashboard/AdminDashboard';
+
 
 
 export {
@@ -21,4 +23,5 @@ export {
   Laurels,
   SpecialMenu,
   UpdatePassword,
+  AdminDashboard,
 };

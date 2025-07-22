@@ -11,6 +11,7 @@ import Table from './Table/Table';
 import AuthModal from './AuthModal/AuthModal';
 import ProfileModal from './ProfileModal/ProfileModal';
 import LoadingSpinner from './LoadingSpinner/LoadingSpinner';
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
 
 
 export {
@@ -27,4 +28,5 @@ export {
   AuthModal,
   ProfileModal,
   LoadingSpinner,
+  ProtectedRoute,
 };

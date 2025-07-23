@@ -12,20 +12,16 @@
   --color-white: #FFFFFF;
 }
 
-/* === AJUSTE GLOBAL PARA O FUNDO DA PÁGINA === */
 html {
   height: 100%;
 }
 
 body {
-  /* Define o fundo preto como a cor base de toda a página */
   background-color: var(--color-black);
-  /* Garante que o body possa crescer para preencher a tela */
   min-height: 100%;
 }
 
 #root {
-  /* Garante que o container do React também possa ocupar toda a altura */
   min-height: 100%;
 }
 /* === FIM DO AJUSTE GLOBAL === */

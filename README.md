@@ -1,6 +1,5 @@
 <div align="center">
   <a href="https://gericht-restaurante-one.vercel.app/">
-   
   </a>
   <h1><b>Gericht Restaurante</b></h1>
   <p>Uma aplicação web completa para um restaurante de alta gastronomia, construída com React e integrada a um backend real com Supabase.</p>
@@ -22,7 +21,6 @@
 <div align="center">
   <!-- INSIRA UM GIF OU SCREENSHOT DO PROJETO AQUI -->
   <img src="URL_DO_SEU_GIF_OU_SCREENSHOT" alt="Demonstração do site Gericht">
-  <p>👆 <em>Substitua a URL acima por um GIF ou screenshot do seu projeto!</em> 👆</p>
 </div>
 
 ---

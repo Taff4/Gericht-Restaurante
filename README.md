@@ -15,7 +15,7 @@
 
 <br>
 
-<!-- INSIRA UM GIF OU SCREENSHOT DO PROJETO AQUI -->
+
 <div align="center">
   <img src="URL_DO_SEU_GIF_OU_SCREENSHOT" alt="Demonstração do site Gericht">
 

@@ -1,6 +1,5 @@
 <div align="center">
   <a href="https://gericht-restaurante-one.vercel.app/">
-    <img src="https://i.imgur.com/your-logo-url.png" alt="Gericht Logo" width="200"/> 
     <!-- Sugestão: Faça upload do seu logo para um serviço como o Imgur e cole o link aqui -->
   </a>
   <h1><b>Gericht Restaurante</b></h1>

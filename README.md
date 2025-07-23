@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://gericht-restaurante-one.vercel.app/">
-    <!-- Sugestão: Faça upload do seu logo para um serviço como o Imgur e cole o link aqui -->
+   
   </a>
   <h1><b>Gericht Restaurante</b></h1>
   <p>Uma aplicação web completa para um restaurante de alta gastronomia, construída com React e integrada a um backend real com Supabase.</p>

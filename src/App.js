@@ -54,7 +54,7 @@ const AuthHandler = () => {
     };
   }, [navigate]);
 
-  return null; // Este componente não renderiza nada
+  return null; 
 };
 
 const App = () => {

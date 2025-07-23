@@ -1,11 +1,9 @@
-// src/App.js
 
-// CORREÇÃO: Adicione 'useEffect' à importação do React
 import React, { useEffect } from 'react'; 
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { supabase } from './supabaseClient';
 
-// Importa todos os containers
+
 import { 
   AboutUs, 
   Chef, 
@@ -20,11 +18,11 @@ import {
   AdminDashboard
 } from './container';
 
-// Importa os componentes necessários
+
 import { Navbar, ProtectedRoute } from './components';
 import './App.css';
 
-// Componente para o layout da página principal
+
 const MainPageLayout = () => (
   <>
     <Navbar />
@@ -40,7 +38,7 @@ const MainPageLayout = () => (
   </>
 );
 
-// Componente que lida com os eventos de autenticação do Supabase
+
 const AuthHandler = () => {
   const navigate = useNavigate();
 
@@ -67,7 +65,7 @@ const App = () => {
         <Route path="/" element={<MainPageLayout />} />
         <Route path="/update-password" element={<UpdatePassword />} />
 
-        {/* ROTA PROTEGIDA PARA O PAINEL DE ADMIN */}
+        {}
         <Route
           path="/admin"
           element={

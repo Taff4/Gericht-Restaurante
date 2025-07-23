@@ -98,10 +98,7 @@ A aplicação estará disponível em `http://localhost:3000`.
 
 O deploy deste projeto foi feito na **Vercel**, conectada diretamente a este repositório GitHub. Qualquer `push` para a branch `main` aciona um novo build e deploy automaticamente.
 
-# Documentação do Projeto Gericht Restaurante
-
-Este diretório contém informações detalhadas sobre a arquitetura, componentes, estrutura do banco de dados e guias de uso do site.
-
+---
 
 ## 📚 Documentação
 
@@ -110,6 +107,7 @@ Para mais detalhes técnicos sobre o projeto, consulte a pasta [`/docs`](./docs/
 -   Uma documentação detalhada sobre a arquitetura dos componentes React.
 -   A estrutura do banco de dados com um script para gerar um diagrama visual.
 
+---
 
 ## 🌟 O que Aprendi
 

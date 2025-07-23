@@ -98,7 +98,7 @@ export const AuthProvider = ({ children }) => {
     register,
     logout,
     resetPassword,
-    refreshUser, // Exporta a nova função
+    refreshUser, 
     loading,
   };
 

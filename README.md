@@ -15,9 +15,9 @@
 
 <br>
 
-
 <div align="center">
-  <img src="URL_DO_SEU_GIF_OU_SCREENSHOT" alt="Demonstração do site Gericht">
+  <img src="./public/home.png" alt="Demonstração do site Gericht">
+</div>
 
 </div>
 
